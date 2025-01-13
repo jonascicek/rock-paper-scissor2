@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/thumb.svg" />
+  <script type="module" defer src="/src/main.js"></script>
+  <title>Rock Paper Scissors</title>
+</head>
+<body class="bg-gray-800 text-white min-h-screen flex flex-col items-center justify-center">
+  <!-- Header-Bereich -->
+  <header class="flex flex-col items-center justify-center bg-gray-900 text-white py-6 font-metalmania">
+    <h1 class="text-4xl font-bold">Rock Paper Scissors</h1>
+    <div class="mt-4 text-xl">
+      <span>Score:</span>
+      <span id="score" class="text-yellow-400 font-bold text-2xl">0</span>
+    </div>
+  </header>
+
+  <!-- Hauptbereich mit Buttons -->
+  <main class="flex items-center justify-center mt-10 relative h-[300px] w-[300px]">
+    <button data-choice="paper" class="absolute top-0 p-4 border-4 border-blue-400 rounded-full hover:scale-110 transition-transform">
+      <img src="/images/paper.svg" alt="Paper" class="w-16 h-16" />
+    </button>
+    <button data-choice="scissors" class="absolute bottom-0 right-10 p-4 border-4 border-green-400 rounded-full hover:scale-110 transition-transform">
+      <img src="/images/scissors.svg" alt="Scissors" class="w-16 h-16" />
+    </button>
+    <button data-choice="rock" class="absolute bottom-0 left-10 p-4 border-4 border-red-400 rounded-full hover:scale-110 transition-transform">
+      <img src="/images/rock.svg" alt="Rock" class="w-16 h-16" />
+    </button>
+  </main>
+
+  <!-- Startbildschirm -->
+  <div id="startscreen" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-white z-50">
+    <h1 class="text-6xl font-extrabold mb-4 text-yellow-400">Rock</h1>
+    <h2 class="text-5xl font-bold mb-4 text-blue-400">Paper</h2>
+    <h3 class="text-4xl font-semibold mb-8 text-green-400">Scissors</h3>
+    <button id="startbutton" class="px-6 py-3 bg-red-500 text-white text-xl font-bold rounded-lg hover:bg-red-600 transition-colors">Start Game</button>
+  </div>
+
+<!-- Regeln -->
+<div id="rules" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-75 z-50">
+  <div class="relative bg-white text-black p-6 rounded-lg w-96">
+    <!-- Schließen-Button -->
+    <button id="closebutton" class="absolute top-2 right-2 text-gray-500 hover:text-black transition-colors">
+      <img src="/images/close.svg" alt="Close" class="w-6 h-6" />
+    </button>
+
+    <!-- Regel-Inhalte -->
+    <h2 class="text-2xl font-bold mb-4 text-center">Rules</h2>
+    <p class="text-base text-gray-700">
+      Rock beats Scissors, Scissors beats Paper, and Paper beats Rock. It’s that simple! Good luck and have fun!
+    </p>
+  </div>
+</div>
+
+<!-- Ergebnisanzeige -->
+<div id="results" class="hidden fixed inset-0 flex flex-col items-center justify-center bg-gray-900 bg-opacity-75 z-50">
+  <!-- Gewinner-Anzeige -->
+  <h3 id="result" class="text-4xl font-extrabold text-yellow-400 mb-6">You Win!</h3>
+
+  <!-- Spieler-Wahl -->
+  <div class="text-center mb-4">
+    <p class="text-xl font-semibold">You chose:</p>
+    <div id="userchoice" class="mt-2 flex justify-center items-center w-24 h-24 border-4 border-blue-400 rounded-full"></div>
+  </div>
+
+  <!-- Computer-Wahl -->
+  <div class="text-center mb-4">
+    <p class="text-xl font-semibold">Computer chose:</p>
+    <div id="computerchoice" class="mt-2 flex justify-center items-center w-24 h-24 border-4 border-red-400 rounded-full"></div>
+  </div>
+
+  <!-- Play Again Button -->
+  <button
+    id="playagain"
+    class="mt-6 px-8 py-3 bg-green-500 text-white text-xl font-bold rounded-lg hover:bg-green-600 transition-colors"
+  >
+    Play Again
+  </button>
+</div>
+</body>
+</html>
