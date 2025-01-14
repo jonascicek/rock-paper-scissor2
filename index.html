@@ -7,26 +7,26 @@
   <script type="module" defer src="/src/main.js"></script>
   <title>Rock Paper Scissors</title>
 </head>
-<body class="bg-gray-800 text-white min-h-screen flex flex-col items-center justify-center">
+<body class="bg-blue-600 text-white min-h-screen flex flex-col items-center justify-center">
   <!-- Header-Bereich -->
   <header class="flex flex-col items-center justify-center bg-gray-900 text-white py-6 font-metalmania">
-    <h1 class="text-4xl font-bold">Rock Paper Scissors</h1>
-    <div class="mt-4 text-xl">
+    <h1>Rock Paper Scissors</h1>
+    <div>
       <span>Score:</span>
-      <span id="score" class="text-yellow-400 font-bold text-2xl">0</span>
+      <span id="score">0</span>
     </div>
   </header>
 
   <!-- Hauptbereich mit Buttons -->
   <main class="flex items-center justify-center mt-10 relative h-[300px] w-[300px]">
-    <button data-choice="paper" class="absolute top-0 p-4 border-4 border-blue-400 rounded-full hover:scale-110 transition-transform">
-      <img src="/images/paper.svg" alt="Paper" class="w-16 h-16" />
+    <button data-choice="paper" class="absolute top-0 p-4 border-4 border-blue-400 rounded-full hover:scale-110 transition-transform size-26">
+      <img src="/images/paper.svg" alt="Paper" />
     </button>
-    <button data-choice="scissors" class="absolute bottom-0 right-10 p-4 border-4 border-green-400 rounded-full hover:scale-110 transition-transform">
-      <img src="/images/scissors.svg" alt="Scissors" class="w-16 h-16" />
+    <button data-choice="scissors" class="absolute bottom-0 right-10 p-4 border-4 border-green-400 rounded-full hover:scale-110 transition-transform size-26">
+      <img src="/images/scissors.svg" alt="Scissors" />
     </button>
-    <button data-choice="rock" class="absolute bottom-0 left-10 p-4 border-4 border-red-400 rounded-full hover:scale-110 transition-transform">
-      <img src="/images/rock.svg" alt="Rock" class="w-16 h-16" />
+    <button data-choice="rock" class="absolute bottom-0 left-10 p-4 border-4 border-red-400 rounded-full hover:scale-110 transition-transform size-26">
+      <img src="/images/rock.svg" alt="Rock" />
     </button>
   </main>
 
