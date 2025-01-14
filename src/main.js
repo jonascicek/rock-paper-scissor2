@@ -1,16 +1,25 @@
-
 import './input.css'
+import './gameLogic.js'
 
+const rulesButton = document.getElementById("rulesbutton"); // "Show Rules"-Button
 const rules = document.getElementById("rules"); // Regelbereich
 const closeButton = document.getElementById("closebutton"); // Schließen-Button
-
-// Regeln ausblenden
-closeButton.addEventListener("click", () => {
-  rules.classList.add("hidden");
-});
-
 const startButton = document.getElementById("startbutton");
 const startScreen = document.getElementById("startscreen");
+const resultsDiv = document.getElementById("results");
+const resultText = document.getElementById("result");
+const userChoiceDiv = document.getElementById("userchoice");
+const computerChoiceDiv = document.getElementById("computerchoice");
+
+// Regelbereich anzeigen
+rulesButton.addEventListener("click", () => {
+  rules.classList.remove("hidden"); // Regelbereich sichtbar machen
+});
+
+// Regelbereich schließen
+closeButton.addEventListener("click", () => {
+  rules.classList.add("hidden"); // Regelbereich ausblenden
+});
 
 // Startbildschirm ausblenden
 startButton.addEventListener("click", () => {
@@ -19,20 +28,16 @@ startButton.addEventListener("click", () => {
 
 // Ergebnisse anzeigen
 function showResults(winner, userChoice, computerChoice) {
-  const resultsDiv = document.getElementById("results");
-  const resultText = document.getElementById("result");
-  const userChoiceDiv = document.getElementById("userchoice");
-  const computerChoiceDiv = document.getElementById("computerchoice");
 
   if (winner === "user") {
     resultText.textContent = "You Win!";
-    resultText.className = "text-4xl font-extrabold text-green-400 mb-6";
+    resultText.className = "text-4xl font-extrabold text-green-400 mb-6 font-metalmania";
   } else if (winner === "computer") {
     resultText.textContent = "You Lose!";
-    resultText.className = "text-4xl font-extrabold text-red-400 mb-6";
+    resultText.className = "text-4xl font-extrabold text-red-400 mb-6 font-metalmania";
   } else {
     resultText.textContent = "It's a Draw!";
-    resultText.className = "text-4xl font-extrabold text-gray-400 mb-6";
+    resultText.className = "text-4xl font-extrabold text-gray-400 mb-6 font-metalmania";
   }
 
   userChoiceDiv.innerHTML = `<img src="/images/${userChoice}.svg" alt="${userChoice}" class="w-16 h-16">`;
@@ -68,16 +73,5 @@ document.querySelectorAll("button[data-choice]").forEach((button) => {
 document.getElementById("playagain").addEventListener("click", () => {
   document.getElementById("results").classList.add("hidden");
 });
-
-
-
-
-
-
-
-
-
-
-//document.getElementById("startbutton").ad
 
 

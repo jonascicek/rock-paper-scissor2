@@ -1,14 +1,10 @@
-@font-face {
-    font-family: 'Metalmania';
-    src: url('/Metalmania-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  body {
-    font-family: 'Metalmania', sans-serif;
-  }
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: MetalMania;
+  src: url('../fonts/MetalMania-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
