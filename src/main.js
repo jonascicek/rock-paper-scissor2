@@ -1,24 +1,24 @@
-import './input.css'
-import './gameLogic.js'
+import './input.css';
+import { getComputerChoice } from './gameLogic.js';
 
-const rulesButton = document.getElementById("rulesbutton"); // "Show Rules"-Button
-const rules = document.getElementById("rules"); // Regelbereich
-const closeButton = document.getElementById("closebutton"); // Schließen-Button
+// HTML-Elemente verknüpfen
+const rulesButton = document.getElementById("rulesbutton");
+const rules = document.getElementById("rules");
+const closeButton = document.getElementById("closebutton");
 const startButton = document.getElementById("startbutton");
 const startScreen = document.getElementById("startscreen");
-const resultsDiv = document.getElementById("results");
-const resultText = document.getElementById("result");
-const userChoiceDiv = document.getElementById("userchoice");
-const computerChoiceDiv = document.getElementById("computerchoice");
+const resultsElement = document.getElementById("results");
+const result = document.getElementById("result");
+const scoreElement = document.getElementById("score");
 
 // Regelbereich anzeigen
 rulesButton.addEventListener("click", () => {
-  rules.classList.remove("hidden"); // Regelbereich sichtbar machen
+  rules.classList.remove("hidden");
 });
 
 // Regelbereich schließen
 closeButton.addEventListener("click", () => {
-  rules.classList.add("hidden"); // Regelbereich ausblenden
+  rules.classList.add("hidden");
 });
 
 // Startbildschirm ausblenden
@@ -28,22 +28,21 @@ startButton.addEventListener("click", () => {
 
 // Ergebnisse anzeigen
 function showResults(winner, userChoice, computerChoice) {
+  result.textContent = winner === "user" ? "You Win!" :
+                       winner === "computer" ? "You Lose!" : "It's a Draw!";
+
+  document.getElementById("userchoice").innerHTML = `
+    <img src="/images/${userChoice}.svg" alt="${userChoice}" class="w-16 h-16">
+  `;
+  document.getElementById("computerchoice").innerHTML = `
+    <img src="/images/${computerChoice}.svg" alt="${computerChoice}" class="w-16 h-16">
+  `;
 
   if (winner === "user") {
-    resultText.textContent = "You Win!";
-    resultText.className = "text-4xl font-extrabold text-green-400 mb-6 font-metalmania";
-  } else if (winner === "computer") {
-    resultText.textContent = "You Lose!";
-    resultText.className = "text-4xl font-extrabold text-red-400 mb-6 font-metalmania";
-  } else {
-    resultText.textContent = "It's a Draw!";
-    resultText.className = "text-4xl font-extrabold text-gray-400 mb-6 font-metalmania";
+    scoreElement.textContent = parseInt(scoreElement.textContent) + 1;
   }
 
-  userChoiceDiv.innerHTML = `<img src="/images/${userChoice}.svg" alt="${userChoice}" class="w-16 h-16">`;
-  computerChoiceDiv.innerHTML = `<img src="/images/${computerChoice}.svg" alt="${computerChoice}" class="w-16 h-16">`;
-
-  resultsDiv.classList.remove("hidden");
+  resultsElement.classList.remove("hidden");
 }
 
 // Gewinner bestimmen
@@ -71,7 +70,5 @@ document.querySelectorAll("button[data-choice]").forEach((button) => {
 
 // Play Again-Button
 document.getElementById("playagain").addEventListener("click", () => {
-  document.getElementById("results").classList.add("hidden");
+  resultsElement.classList.add("hidden");
 });
-
-
